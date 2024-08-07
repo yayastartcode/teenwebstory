@@ -5,10 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<?php wp_head(); ?>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <?php
-	$navbar_scheme   = get_theme_mod( 'navbar_scheme', 'navbar-dark bg-dark' ); // Get custom meta-value.
+	$navbar_scheme   = get_theme_mod( 'navbar_scheme', 'navbar-light bg-light' ); // Get custom meta-value.
 	$navbar_position = get_theme_mod( 'navbar_position', 'static' ); // Get custom meta-value.
 
 	$search_enabled  = get_theme_mod( 'search_enabled', '1' ); // Get custom meta-value.
@@ -20,10 +21,10 @@
 
 <a href="#main" class="visually-hidden-focusable"><?php esc_html_e( 'Skip to main content', 'teen-web-story' ); ?></a>
 
-<div id="wrapper">
+<div id="wrapper" class="grd">
 	<header>
 		<nav id="header" class="navbar navbar-expand-md <?php echo esc_attr( $navbar_scheme ); if ( isset( $navbar_position ) && 'fixed_top' === $navbar_position ) : echo ' fixed-top'; elseif ( isset( $navbar_position ) && 'fixed_bottom' === $navbar_position ) : echo ' fixed-bottom'; endif; if ( is_home() || is_front_page() ) : echo ' home'; endif; ?>">
-			<div class="container">
+			<div class="container justify-content-center">
 				<a class="navbar-brand" href="<?php echo esc_url( home_url() ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
 					<?php
 						$header_logo = get_theme_mod( 'header_logo' ); // Get custom meta-value.
@@ -38,7 +39,7 @@
 					?>
 				</a>
 
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'teen-web-story' ); ?>">
+				<!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'teen-web-story' ); ?>">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
@@ -66,7 +67,9 @@
 					<?php
 						endif;
 					?>
-				</div><!-- /.navbar-collapse -->
+				</div>
+				 -->
+				<!-- /.navbar-collapse -->
 			</div><!-- /.container -->
 		</nav><!-- /#header -->
 	</header>
@@ -77,7 +80,7 @@
 			if ( is_single() || is_archive() ) :
 		?>
 			<div class="row">
-				<div class="col-md-8 col-sm-12">
+				<div class="col-md-12 col-sm-12">
 		<?php
 			endif;
 		?>

@@ -1,4 +1,5 @@
-			<?php
+
+<?php
 				// If Single or Archive (Category, Tag, Author or a Date based page).
 				if ( is_single() || is_archive() ) :
 			?>
@@ -14,6 +15,27 @@
 			?>
 		</main><!-- /#main -->
 		<footer id="footer">
+			<div id="myOverlay" class="overlay">
+  <span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
+  <div class="overlay-content">
+    <form role="search" method="get" action="<?php echo home_url('/'); ?>">
+      <input type="text" placeholder="Search.." name="s" value="<?php the_search_query(); ?>">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+</div>
+			 <nav class="mobile-nav">
+	<a href="/" class="bloc-icon">
+		<img src="https://www.svgrepo.com/show/160019/home.svg" alt="">
+	</a>
+		<a href="#" class="bloc-icon" onclick="openSearch()">
+		<img src="https://www.svgrepo.com/show/532555/search.svg" alt="">
+	</a>
+	<a href="#" class="bloc-icon">
+		<img src="https://www.svgrepo.com/show/532275/heart-half-stroke.svg" alt="">
+	</a>
+
+    </nav>
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
@@ -62,5 +84,15 @@
 	<?php
 		wp_footer();
 	?>
+	<script>
+function openSearch() {
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+function closeSearch() {
+  document.getElementById("myOverlay").style.display = "none";
+}
+</script>
+     
 </body>
 </html>
